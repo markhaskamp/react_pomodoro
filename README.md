@@ -14,7 +14,10 @@
 
 ### actors (controls, views)
 
-- countdown timer
+- Ticker
+- Countdown display
+- Completed pomos
+
 
 ### events
 
