@@ -12,11 +12,11 @@ function handleTick(evt) {
   ea.publish('TICK', {});
 }
 
-$(document).ready(function() {
+// $(document).ready(function() {
   ea = new EventAggregator();
 
   Store.timer.setSubscriptions();
 
   setInterval(handleTick, 1000);
-});
+// });
 
