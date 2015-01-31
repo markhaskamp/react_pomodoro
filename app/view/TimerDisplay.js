@@ -23,7 +23,11 @@ var TimerDisplay = React.createClass({
     return (
       <div>
         <p>Elapsed Seconds: {this.state.elapsedSeconds}</p>
-        <p><input type="button" id="btnTimerToggle" value={this.state.toggleLabel} onClick={this.handleToggle} /></p>
+        <p><input type="button" 
+                  id="btnTimerToggle" 
+                  value={this.state.toggleLabel} 
+                  onClick={this.handleToggle} />
+        </p>
       </div>
     );
   }
