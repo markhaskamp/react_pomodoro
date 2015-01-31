@@ -7,16 +7,7 @@ var TimerDisplay = React.createClass({
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.handleTick, 1000);
     ea.subscribe('CHANGE', 'onChange', this.onChange);
-  },
-
-  componentWillUnmount: function() {
-    clearInterval(this.interval);
-  },
-
-  handleTick: function() {
-    ea.publish('TICK', {});
   },
 
   handleToggle: function() {
