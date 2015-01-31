@@ -1,5 +1,5 @@
 
-var Timer = React.createClass({
+var TimerDisplay = React.createClass({
   getInitialState: function() {
     return {elapsedSeconds: 0,
             timerRunning:   true,
@@ -39,5 +39,5 @@ var Timer = React.createClass({
 
 });
 
-React.render(<Timer />, document.getElementById('content'));
+React.render(<TimerDisplay />, document.getElementById('content'));
 
