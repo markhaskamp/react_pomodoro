@@ -4,8 +4,8 @@ var Store = {
   timer: timer_model
 }
 
-function drunkDrawer(stuff) {
-  console.log('drunkDrawer. stuff: ' + stuff);
+function junkDrawer(misc) {
+  console.log('junkDrawer. stuff: ' + misc);
 }
 
 function handleTick(evt) {
