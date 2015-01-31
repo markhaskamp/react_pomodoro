@@ -8,7 +8,7 @@ function drunkDrawer(stuff) {
   console.log('drunkDrawer. stuff: ' + stuff);
 }
 
-function onTick(evt) {
+function handleTick(evt) {
   ea.publish('TICK', {});
 }
 
@@ -17,6 +17,6 @@ $(document).ready(function() {
 
   Store.timer.setSubscriptions();
 
-  setInterval(onTick, 1000);
+  setInterval(handleTick, 1000);
 });
 
