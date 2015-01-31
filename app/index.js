@@ -10,6 +10,6 @@ function drunkDrawer(stuff) {
 
 $(document).ready(function() {
   ea = new EventAggregator();
-  ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
-  ea.subscribe('TIMER_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
+
+  Store.timer.setSubscriptions();
 });

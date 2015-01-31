@@ -4,6 +4,11 @@ timer_model = {
   timerRunning:   true,
   toggleLabel:    'Stop',
 
+  setSubscriptions: function() {
+    ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
+    ea.subscribe('TIMER_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
+  },
+
   handleTick: function(evt) {
     if (Store.timer.timerRunning) {
       Store.timer.elapsedSeconds = Store.timer.elapsedSeconds + 1;
