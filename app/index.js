@@ -9,8 +9,8 @@ var Store = {
     handleTick: function(evt) {
       if (Store.timer.timerRunning) {
         Store.timer.elapsedSeconds = Store.timer.elapsedSeconds + 1;
+        ea.publish('CHANGE');
       }
-      ea.publish('CHANGE');
     },
   
     handleTimerToggle: function(evt) {
