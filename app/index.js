@@ -6,7 +6,9 @@ var Store = {
   toggleLabel:    'Stop',
 
   handleTick: function(evt) {
-    Store.elapsedSeconds = Store.elapsedSeconds + 1;    
+    if (Store.timerRunning) {
+      Store.elapsedSeconds = Store.elapsedSeconds + 1;
+    }
     ea.publish('CHANGE');
   },
 
