@@ -1,15 +1,13 @@
 
 var Timer = React.createClass({
   getInitialState: function() {
-    return {elapsedSeconds: 0};
-  },
-
-  tick: function() {
-    ea.publish('TICK', {});
+    return {elapsedSeconds: 0,
+            timerRunning:   true,
+            toggleLabel:    'Stop'};
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.handleTick, 1000);
     ea.subscribe('CHANGE', 'onChange', this.onChange);
   },
 
@@ -17,13 +15,25 @@ var Timer = React.createClass({
     clearInterval(this.interval);
   },
 
+  handleTick: function() {
+    ea.publish('TICK', {});
+  },
+
+  handleToggle: function() {
+    ea.publish('TIMER_TOGGLE', {}); 
+  },
+
   onChange: function() {
-    this.setState({elapsedSeconds: Store.elapsedSeconds});;
+    this.setState({elapsedSeconds: Store.elapsedSeconds,
+                   toggleLabel:    Store.toggleLabel});;
   },
 
   render: function() {
     return (
-      <div>Elapsed Seconds: {this.state.elapsedSeconds}</div>
+      <div>
+        <p>Elapsed Seconds: {this.state.elapsedSeconds}</p>
+        <p><input type="button" id="btnTimerToggle" value={this.state.toggleLabel} onClick={this.handleToggle} /></p>
+      </div>
     );
   }
 
