@@ -1,27 +1,29 @@
 var ea;
 
 var Store = {
-  elapsedSeconds: 0,
-  timerRunning:   true,
-  toggleLabel:    'Stop',
-
-  handleTick: function(evt) {
-    if (Store.timerRunning) {
-      Store.elapsedSeconds = Store.elapsedSeconds + 1;
+  timer: {
+    elapsedSeconds: 0,
+    timerRunning:   true,
+    toggleLabel:    'Stop',
+  
+    handleTick: function(evt) {
+      if (Store.timer.timerRunning) {
+        Store.timer.elapsedSeconds = Store.timer.elapsedSeconds + 1;
+      }
+      ea.publish('CHANGE');
+    },
+  
+    handleTimerToggle: function(evt) {
+      Store.timer.timerRunning = !Store.timer.timerRunning;
+      if (Store.timer.timerRunning) {
+        Store.timer.toggleLabel = "Stop";
+      }
+      else {
+        Store.timer.toggleLabel = "Start";
+      }
+  
+      ea.publish('CHANGE');
     }
-    ea.publish('CHANGE');
-  },
-
-  handleTimerToggle: function(evt) {
-    Store.timerRunning = !Store.timerRunning;
-    if (Store.timerRunning) {
-      Store.toggleLabel = "Stop";
-    }
-    else {
-      Store.toggleLabel = "Start";
-    }
-
-    ea.publish('CHANGE');
   }
 }
 
@@ -31,6 +33,6 @@ function drunkDrawer(stuff) {
 
 $(document).ready(function() {
   ea = new EventAggregator();
-  ea.subscribe('TICK', 'handleTick', Store.handleTick);
-  ea.subscribe('TIMER_TOGGLE', 'handleTimerToggle', Store.handleTimerToggle);
+  ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
+  ea.subscribe('TIMER_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
 });

@@ -24,8 +24,8 @@ var Timer = React.createClass({
   },
 
   onChange: function() {
-    this.setState({elapsedSeconds: Store.elapsedSeconds,
-                   toggleLabel:    Store.toggleLabel});;
+    this.setState({elapsedSeconds: Store.timer.elapsedSeconds,
+                   toggleLabel:    Store.timer.toggleLabel});;
   },
 
   render: function() {
