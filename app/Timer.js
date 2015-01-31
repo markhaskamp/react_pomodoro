@@ -4,7 +4,6 @@ var Timer = React.createClass({
     return {secondsElapsed: 0};
   },
   tick: function() {
-    // this.setState({secondsElapsed: this.state.secondsElapsed + 1});
     ea.publish('TICK', {});
   },
   componentDidMount: function() {
@@ -15,14 +14,13 @@ var Timer = React.createClass({
     clearInterval(this.interval);
   },
   handleChange: function() {
-    // console.log('wut');
+    this.forceUpdate();
   },
   render: function() {
     return (
-      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+      <div>Seconds Elapsed: {Store.elapsedSeconds}</div>
     );
   }
-
 
 });
 

@@ -5,7 +5,6 @@ var Store = {
 
   handleTick: function(evt) {
     Store.elapsedSeconds = Store.elapsedSeconds + 1;    
-    // console.log(Store.elapsedSeconds);
     ea.publish('CHANGE');
   }
 }
