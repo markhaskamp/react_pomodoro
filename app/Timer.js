@@ -4,10 +4,11 @@ var Timer = React.createClass({
     return {secondsElapsed: 0};
   },
   tick: function() {
-    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+    // this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+    ea.publish('TICK', {});
   },
   componentDidMount: function() {
-    this.interval = setInterval(Store.handleTick, 1000);
+    this.interval = setInterval(this.tick, 1000);
   },
   componentWillUnmount: function() {
     clearInterval(this.interval);

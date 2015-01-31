@@ -1,12 +1,15 @@
+var ea;
 
 var Store = {
   elapsedSeconds: 0,
 
   handleTick: function(evt) {
-    console.log(Store.elapsedSeconds);
+    Store.elapsedSeconds = Store.elapsedSeconds + 1;    
+    // console.log(Store.elapsedSeconds);
   }
 }
 
 $(document).ready(function() {
-  console.log('eddie would go');
+  ea = new EventAggregator();
+  ea.subscribe('TICK', 'handleTick', Store.handleTick);
 });
