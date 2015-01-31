@@ -8,12 +8,12 @@ var Timer = React.createClass({
   },
   componentDidMount: function() {
     this.interval = setInterval(this.tick, 1000);
-    ea.subscribe('CHANGE', 'handleChange', this.handleChange);
+    ea.subscribe('CHANGE', 'onChange', this.onChange);
   },
   componentWillUnmount: function() {
     clearInterval(this.interval);
   },
-  handleChange: function() {
+  onChange: function() {
     this.forceUpdate();
   },
   render: function() {
