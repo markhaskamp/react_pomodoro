@@ -4,11 +4,12 @@ timer_model = {
   seconds:        0,
   displaySeconds: '00',
   timerRunning:   false,
-  toggleLabel:    'Restart',
+  toggleLabel:    'Resume',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
-    ea.subscribe('PAUSE_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
+    ea.subscribe('PAUSE_TOGGLE', 'handlePauseToggle', Store.timer.handlePauseToggle);
+    ea.subscribe('START_TOGGLE', 'handleStartClick', Store.timer.handleStartClick);
   },
 
   handleTick: function(evt) {
@@ -24,13 +25,23 @@ timer_model = {
     }
   },
 
-  handleTimerToggle: function(evt) {
+  handleStartClick: function(evt) {
+    Store.timer.minutes = 0;
+    Store.timer.seconds = 0;
+    Store.displaySeconds = '00';
+    Store.timer.timerRunning = true;
+    Store.timer.toggleLabel = "Pause";
+
+    ea.publish('CHANGE');
+  },
+
+  handlePauseToggle: function(evt) {
     Store.timer.timerRunning = !Store.timer.timerRunning;
     if (Store.timer.timerRunning) {
       Store.timer.toggleLabel = "Pause";
     }
     else {
-      Store.timer.toggleLabel = "Restart";
+      Store.timer.toggleLabel = "Resume";
     }
 
     ea.publish('CHANGE');
