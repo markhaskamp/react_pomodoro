@@ -1,9 +1,12 @@
 
 var TimerDisplay = React.createClass({
   getInitialState: function() {
-    return {elapsedSeconds: 25 * 60,
-            timerRunning:   false,
-            toggleLabel:    'Start'};
+    return {
+      minutes:      timer_model.minutes,
+      seconds:      timer_model.seconds,
+      timerRunning: timer_model.timerRunning,
+      toggleLabel:  timer_model.toggleLabel
+    };
   },
 
   componentDidMount: function() {
@@ -15,14 +18,15 @@ var TimerDisplay = React.createClass({
   },
 
   onChange: function() {
-    this.setState({elapsedSeconds: Store.timer.elapsedSeconds,
-                   toggleLabel:    Store.timer.toggleLabel});;
+    this.setState({minutes:     Store.timer.minutes,
+                   seconds:     Store.timer.seconds,
+                   toggleLabel: Store.timer.toggleLabel});;
   },
 
   render: function() {
     return (
       <div>
-        <p>Elapsed Seconds: {this.state.elapsedSeconds}</p>
+        <p>Pomodoro: {this.state.minutes}:{this.state.seconds}</p>
         <p><input type="button" 
                   id="btnTimerToggle" 
                   value={this.state.toggleLabel} 
