@@ -2,6 +2,14 @@
 
 ## Design Notes
 
+### goal
+
+- use pomodoro technique to do work
+- timer to define when I'm in and out of pomodoros
+- timer to define when I"m in and out of breaks
+- track pomos completed, interrupted
+- 
+
 ### flux architecture
 - control publishes an event
 - Store subscribes to EA events
