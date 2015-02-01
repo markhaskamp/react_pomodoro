@@ -4,11 +4,11 @@ timer_model = {
   seconds:        0,
   displaySeconds: '00',
   timerRunning:   false,
-  toggleLabel:    'Start',
+  toggleLabel:    'Restart',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
-    ea.subscribe('TIMER_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
+    ea.subscribe('PAUSE_TOGGLE', 'handleTimerToggle', Store.timer.handleTimerToggle);
   },
 
   handleTick: function(evt) {
@@ -27,10 +27,10 @@ timer_model = {
   handleTimerToggle: function(evt) {
     Store.timer.timerRunning = !Store.timer.timerRunning;
     if (Store.timer.timerRunning) {
-      Store.timer.toggleLabel = "Stop";
+      Store.timer.toggleLabel = "Pause";
     }
     else {
-      Store.timer.toggleLabel = "Start";
+      Store.timer.toggleLabel = "Restart";
     }
 
     ea.publish('CHANGE');

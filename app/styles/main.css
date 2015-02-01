@@ -1,0 +1,25 @@
+
+.foo {
+  background-color: #777777;
+  margin: 3px;
+  padding: 3px;
+  padding-left: 6px;
+  color: white;
+  width: 400px;
+}
+
+.pomo_line {
+  margin: 5px;
+  background-color: red;
+}
+
+.pause_button {
+  width: 75px;
+  border: 1px solid black;
+}
+
+.pomo_timer {
+  width: 75px;
+  border: 1px solid blue;
+}
+
