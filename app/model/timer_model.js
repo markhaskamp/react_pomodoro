@@ -1,7 +1,7 @@
 
 timer_model = {
   minutes:      25,
-  seconds:      0,
+  seconds:      '00',
   timerRunning: false,
   toggleLabel:  'Start',
 
