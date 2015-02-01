@@ -1,8 +1,8 @@
 
 timer_model = {
-  elapsedSeconds: 0,
-  timerRunning:   true,
-  toggleLabel:    'Stop',
+  elapsedSeconds: 25 * 60,
+  timerRunning:   false,
+  toggleLabel:    'Start',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
@@ -11,7 +11,7 @@ timer_model = {
 
   handleTick: function(evt) {
     if (Store.timer.timerRunning) {
-      Store.timer.elapsedSeconds = Store.timer.elapsedSeconds + 1;
+      Store.timer.elapsedSeconds = Store.timer.elapsedSeconds - 1;
       ea.publish('CHANGE');
     }
   },

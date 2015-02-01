@@ -1,9 +1,9 @@
 
 var TimerDisplay = React.createClass({
   getInitialState: function() {
-    return {elapsedSeconds: 0,
-            timerRunning:   true,
-            toggleLabel:    'Stop'};
+    return {elapsedSeconds: 25 * 60,
+            timerRunning:   false,
+            toggleLabel:    'Start'};
   },
 
   componentDidMount: function() {
