@@ -6,6 +6,9 @@ timer_model = {
   timerRunning:   false,
   tmpDescription: '',
   description:    ' -- ',
+  backgroundColor: {'backgroundColor':'#dfdfdf'},
+
+  warningColors: ['#ffe8e8', '#ff9797', '#ff5959', '#ff2222', '#ff0000'],
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
@@ -21,6 +24,14 @@ timer_model = {
         Store.timer.minutes = Store.timer.minutes + 1;
       }
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
+
+      if (Store.timer.minutes >= 0) {
+        mod = Math.floor(Store.timer.seconds / 12);
+        bgHex = Store.timer.warningColors[mod];
+        foo = "'" + bgHex + "'";
+        Store.timer.backgroundColor = {"'backgroundColor'":bgHex};
+        console.log(Store.timer.backgroundColor);
+      }
 
       ea.publish('CHANGE');
     }
