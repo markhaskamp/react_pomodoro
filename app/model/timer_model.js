@@ -4,10 +4,13 @@ timer_model = {
   seconds:        0,
   displaySeconds: '00',
   timerRunning:   false,
+  tmpDescription: '',
+  description:    ' -- ',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
     ea.subscribe('START_TOGGLE', 'handleStartClick', Store.timer.handleStartClick);
+    ea.subscribe('DESCRIPTION_CHANGED', 'handleDescriptionChanged', Store.timer.handleDescriptionChanged);
   },
 
   handleTick: function(evt) {
@@ -28,13 +31,13 @@ timer_model = {
     Store.timer.seconds = 0;
     Store.displaySeconds = '00';
     Store.timer.timerRunning = true;
+    Store.timer.description = Store.timer.tmpDescription;
 
     ea.publish('CHANGE');
   },
 
-  handlePauseToggle: function(evt) {
-    Store.timer.timerRunning = !Store.timer.timerRunning;
-    ea.publish('CHANGE');
+  handleDescriptionChanged: function(evt) {
+    Store.timer.tmpDescription = $('#txtDescription').val();
   }
 }
 

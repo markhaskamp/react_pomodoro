@@ -8,12 +8,12 @@ var TimerDisplay = React.createClass({
     ea.subscribe('CHANGE', 'onChange', this.onChange);
   },
 
-  pauseButtonClicked: function() {
-    ea.publish('PAUSE_TOGGLE', {}); 
-  },
-
   startButtonClicked: function() {
     ea.publish('START_TOGGLE', {}); 
+  },
+
+  descriptionChanged: function(evt) {
+    ea.publish('DESCRIPTION_CHANGED', {});
   },
 
   onChange: function() {
@@ -21,14 +21,17 @@ var TimerDisplay = React.createClass({
   },
 
   render: function() {
-    buttonStyle = {'float': 'left', 'width': 75};
     return (
       <div>
-        <div style={buttonStyle}><input type="button" 
-              id="btnStart" 
-              value="Start"
-              onClick={this.startButtonClicked} />
+        <div>
+          Doing what? <input type="text" onChange={this.descriptionChanged} id="txtDescription" />
+          <input type="button" 
+                 id="btnStart" 
+                 value="Start"
+                 onClick={this.startButtonClicked} />
         </div>
+        
+        <div style={{'float':'left'}}>{this.state.description}</div>
         <div>{this.state.minutes}:{this.state.displaySeconds}</div>
       </div>
     );
