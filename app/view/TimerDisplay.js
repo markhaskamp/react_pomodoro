@@ -21,6 +21,8 @@ var TimerDisplay = React.createClass({
   },
 
   render: function() {
+    timerStyle = {'float':'left', 'width':60, 'marginTop':15, 'border':'1px solid black'};
+    descrStyle = {'marginLeft': 80, 'marginTop':15}
     return (
       <div>
         <div>
@@ -31,8 +33,8 @@ var TimerDisplay = React.createClass({
                  onClick={this.startButtonClicked} />
         </div>
         
-        <div style={{'float':'left'}}>{this.state.description}</div>
-        <div>{this.state.minutes}:{this.state.displaySeconds}</div>
+        <div style={timerStyle}>{this.state.minutes}:{this.state.displaySeconds}</div>
+        <div style={descrStyle}>{this.state.description}</div>
       </div>
     );
   }
