@@ -29,11 +29,6 @@ var TimerDisplay = React.createClass({
               value="Start"
               onClick={this.startButtonClicked} />
         </div>
-        <div style={buttonStyle}><input type="button" 
-              id="btnPause" 
-              value={this.state.toggleLabel} 
-              onClick={this.pauseButtonClicked} />
-        </div>
         <div>{this.state.minutes}:{this.state.displaySeconds}</div>
       </div>
     );
