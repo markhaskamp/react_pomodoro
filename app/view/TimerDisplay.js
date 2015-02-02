@@ -1,13 +1,7 @@
 
 var TimerDisplay = React.createClass({
   getInitialState: function() {
-    return {
-      minutes:        timer_model.minutes,
-      seconds:        timer_model.seconds,
-      displaySeconds: timer_model.displaySeconds,
-      timerRunning:   timer_model.timerRunning,
-      toggleLabel:    timer_model.toggleLabel
-    };
+    return timer_model;
   },
 
   componentDidMount: function() {
@@ -23,26 +17,24 @@ var TimerDisplay = React.createClass({
   },
 
   onChange: function() {
-    this.setState({minutes:        Store.timer.minutes,
-                   seconds:        Store.timer.seconds,
-                   displaySeconds: Store.timer.displaySeconds,
-                   toggleLabel:    Store.timer.toggleLabel});;
+    this.setState(timer_model);
   },
 
   render: function() {
+    buttonStyle = {'float': 'left', 'width': 75};
     return (
       <div>
-        <span><input type="button" 
+        <div style={buttonStyle}><input type="button" 
               id="btnStart" 
               value="Start"
               onClick={this.startButtonClicked} />
-        </span>
-        <span><input type="button" 
+        </div>
+        <div style={buttonStyle}><input type="button" 
               id="btnPause" 
               value={this.state.toggleLabel} 
               onClick={this.pauseButtonClicked} />
-        </span>
-        <span>Pomodoro: {this.state.minutes}:{this.state.displaySeconds}</span>
+        </div>
+        <div>{this.state.minutes}:{this.state.displaySeconds}</div>
       </div>
     );
   }
