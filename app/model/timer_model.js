@@ -4,6 +4,7 @@ timer_model = {
   seconds:        0,
   displaySeconds: '00',
   timerRunning:   false,
+  description:    ' -- ',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
@@ -29,6 +30,7 @@ timer_model = {
     Store.displaySeconds = '00';
     Store.timer.timerRunning = true;
     Store.timer.toggleLabel = "Pause";
+    Store.timer.description = $('#txtDescription').val();
 
     ea.publish('CHANGE');
   }

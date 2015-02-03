@@ -20,12 +20,14 @@ var TimerDisplay = React.createClass({
     buttonStyle = {'float': 'left', 'width': 75};
     return (
       <div>
+        <div>Doing what? <input type="text" id="txtDescription" /></div>
         <div style={buttonStyle}><input type="button" 
               id="btnStart" 
               value="Start"
               onClick={this.startButtonClicked} />
         </div>
         <div>{this.state.minutes}:{this.state.displaySeconds}</div>
+        <div>{this.state.description}</div>
       </div>
     );
   }
