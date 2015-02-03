@@ -5,6 +5,7 @@ timer_model = {
   displaySeconds: '00',
   timerRunning:   false,
   description:    ' -- ',
+  descrClass:     'foo',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
@@ -19,6 +20,12 @@ timer_model = {
         Store.timer.minutes = Store.timer.minutes + 1;
       }
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
+
+      if (Store.timer.minutes >= 25) {
+        ndx = Math.floor(Store.timer.seconds / 12);
+        descrClass = 'foo' + ndx;
+        Store.timer.descrClass = descrClass;
+      }
 
       ea.publish('CHANGE');
     }
