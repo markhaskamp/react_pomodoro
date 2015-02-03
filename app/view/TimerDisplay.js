@@ -9,7 +9,7 @@ var TimerDisplay = React.createClass({
   },
 
   startButtonClicked: function() {
-    ea.publish('START_TOGGLE', {}); 
+    ea.publish('START_CLICKED', {}); 
   },
 
   descriptionChanged: function(evt) {
@@ -21,18 +21,22 @@ var TimerDisplay = React.createClass({
   },
 
   render: function() {
+    buttonStyle = {'float':'left', 'width': 75};
+    timerStyle = {'float':'left', 'width':60, 'marginTop':15};
+    descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10};
+
     return (
       <div>
+        <div style={{'float':'left'}}>Doing what? <input type="text" id="txtDescription" /></div>
         <div>
-          Doing what? <input type="text" onChange={this.descriptionChanged} id="txtDescription" />
           <input type="button" 
                  id="btnStart" 
                  value="Start"
                  onClick={this.startButtonClicked} />
         </div>
-        
-        <div>{this.state.minutes}:{this.state.displaySeconds}</div>
-        <div style={this.state.backgroundColor}>{this.state.description}</div>
+        <div style={{'clear':'both'}}></div>
+        <div style={timerStyle}>{this.state.minutes}:{this.state.displaySeconds}</div>
+        <div className={this.state.descrClass} style={descrStyle}>{this.state.description}</div>
       </div>
     );
   }
