@@ -8,12 +8,8 @@ var TimerDisplay = React.createClass({
     ea.subscribe('CHANGE', 'onChange', this.onChange);
   },
 
-  pauseButtonClicked: function() {
-    ea.publish('PAUSE_TOGGLE', {}); 
-  },
-
   startButtonClicked: function() {
-    ea.publish('START_TOGGLE', {}); 
+    ea.publish('START_CLICKED', {}); 
   },
 
   onChange: function() {
@@ -28,11 +24,6 @@ var TimerDisplay = React.createClass({
               id="btnStart" 
               value="Start"
               onClick={this.startButtonClicked} />
-        </div>
-        <div style={buttonStyle}><input type="button" 
-              id="btnPause" 
-              value={this.state.toggleLabel} 
-              onClick={this.pauseButtonClicked} />
         </div>
         <div>{this.state.minutes}:{this.state.displaySeconds}</div>
       </div>

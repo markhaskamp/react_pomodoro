@@ -4,12 +4,10 @@ timer_model = {
   seconds:        0,
   displaySeconds: '00',
   timerRunning:   false,
-  toggleLabel:    'Resume',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
-    ea.subscribe('PAUSE_TOGGLE', 'handlePauseToggle', Store.timer.handlePauseToggle);
-    ea.subscribe('START_TOGGLE', 'handleStartClick', Store.timer.handleStartClick);
+    ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
   },
 
   handleTick: function(evt) {
@@ -33,18 +31,7 @@ timer_model = {
     Store.timer.toggleLabel = "Pause";
 
     ea.publish('CHANGE');
-  },
-
-  handlePauseToggle: function(evt) {
-    Store.timer.timerRunning = !Store.timer.timerRunning;
-    if (Store.timer.timerRunning) {
-      Store.timer.toggleLabel = "Pause";
-    }
-    else {
-      Store.timer.toggleLabel = "Resume";
-    }
-
-    ea.publish('CHANGE');
   }
+
 }
 
