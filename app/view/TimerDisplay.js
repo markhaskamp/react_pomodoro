@@ -23,7 +23,7 @@ var TimerDisplay = React.createClass({
   render: function() {
     buttonStyle = {'float':'left', 'width': 75};
     timerStyle = {'float':'left', 'width':60, 'marginTop':15};
-    descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10};
+    descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10, 'width':300};
 
     return (
       <div>
@@ -31,7 +31,7 @@ var TimerDisplay = React.createClass({
         <div>
           <input type="button" 
                  id="btnStart" 
-                 value="Start"
+                 value={this.state.startButtonLabel}
                  onClick={this.startButtonClicked} />
         </div>
         <div style={{'clear':'both'}}></div>

@@ -1,8 +1,19 @@
 
 .foo { background-color: #ffffff; }
 .foo0 { background-color: #fff5f5; }
-.foo1 { background-color: #ffbfbf; }
-.foo2 { background-color: #ffa0a0; }
-.foo3 { background-color: #ff8585; }
-.foo4 { background-color: #ff1b1b; color: #ffffff; }
+.foo1 { background-color: #ffe5e5; }
+.foo2 { background-color: #ffd5d5; }
+.foo3 { background-color: #ffc5c5; }
+.foo4 { background-color: #ffb5b5; }
+.foo5 { background-color: #ffa5a5; }
+.foo6 { background-color: #ff9595; }
+.foo7 { background-color: #ff8585; }
+.foo8 { background-color: #ff7575; }
+.foo9 { background-color: #ff6565; }
+.foo10 { background-color: #ff5555; }
+.foo11 { background-color: #ff4545; }
+.foo12 { background-color: #ff3535; }
+.foo13 { background-color: #ff2525; color: white }
+.foo14 { background-color: #ff1515; color: white}
+.foo15 { background-color: #ff0505; color: white }
 

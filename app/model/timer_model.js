@@ -5,6 +5,7 @@ timer_model = {
   displaySeconds: '00',
   timerRunning:   false,
   description:    ' -- ',
+  startButtonLabel: 'Start',
   descrClass:     'foo',
 
   setSubscriptions: function() {
@@ -22,7 +23,7 @@ timer_model = {
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
 
       if (Store.timer.minutes >= 25) {
-        ndx = Math.floor(Store.timer.seconds / 12);
+        ndx = Math.floor(Store.timer.seconds % 16);
         descrClass = 'foo' + ndx;
         Store.timer.descrClass = descrClass;
       }
@@ -32,12 +33,17 @@ timer_model = {
   },
 
   handleStartClick: function(evt) {
-    Store.timer.minutes = 0;
-    Store.timer.seconds = 0;
-    Store.displaySeconds = '00';
-    Store.timer.timerRunning = true;
-    Store.timer.toggleLabel = "Pause";
-    Store.timer.description = $('#txtDescription').val();
+    if (!Store.timer.timerRunning) {
+      Store.timer.minutes = 0;
+      Store.timer.seconds = 0;
+      Store.timer.displaySeconds = '00';
+      Store.timer.description = $('#txtDescription').val();
+      Store.timer.startButtonLabel = 'Stop';
+    }
+    else {
+      Store.timer.startButtonLabel = 'Start';
+    }
+    Store.timer.timerRunning = !Store.timer.timerRunning;
 
     ea.publish('CHANGE');
   }

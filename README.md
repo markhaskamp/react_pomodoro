@@ -35,15 +35,10 @@
 
 - mode
   - pomo running
-  - break running
+  - pomo paused
+  - short break running
+  - long break running
+  - stopped
 - completed pomos
 
-#### warning colors
 
-- 5 shades
-- every 12 seconds
-  1. ffe8e8
-  2. ff9797
-  3. ff5959
-  4. ff2222
-  5. ff0000
