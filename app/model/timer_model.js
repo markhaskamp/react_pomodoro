@@ -6,7 +6,7 @@ timer_model = {
   timerRunning:   false,
   description:    ' -- ',
   startButtonLabel: 'Start',
-  descrClass:     'foo',
+  descrClass:     'description',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
@@ -23,8 +23,8 @@ timer_model = {
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
 
       if (Store.timer.minutes >= 25) {
-        ndx = Math.floor(Store.timer.seconds % 16);
-        descrClass = 'foo' + ndx;
+        ndx = Math.floor(Store.timer.seconds / 4);
+        descrClass = 'description' + ndx;
         Store.timer.descrClass = descrClass;
       }
 
