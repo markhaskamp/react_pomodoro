@@ -42,6 +42,7 @@ timer_model = {
     }
     else {
       Store.timer.startButtonLabel = 'Start';
+      Store.timer.descrClass = "description";
     }
     Store.timer.timerRunning = !Store.timer.timerRunning;
 
