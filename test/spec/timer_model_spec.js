@@ -22,9 +22,17 @@ describe("given timer_model", function() {
     });
   });
 
-  // describe("given handleTick()", function() {
-  //   describe("when
-  // });
+  describe("given handleTick()", function() {
+    describe("when timer is running", function() {
+      timer_model.timerRunning = true;
+
+      it("then seconds + 1", function() {
+        timer_model.handleTick();
+
+        expect(timer_model.seconds).toEqual(1);
+      });
+    });
+  });
 
 });
 
