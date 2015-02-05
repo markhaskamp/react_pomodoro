@@ -13,7 +13,6 @@ pomodoroListModel = {
     var d = new Date();
     pomo.timestamp = d;
     Store.pomodoroList.completedPomos.unshift(pomo);
-    console.log(pomo);
   }
 
 };
