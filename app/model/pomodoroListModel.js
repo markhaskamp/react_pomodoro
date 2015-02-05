@@ -8,8 +8,12 @@ pomodoroListModel = {
     
   },
 
-  handlePomoCompleted: function(evt) {
-    Store.pomodoroList.completedPomos.unshift(evt[0].description);
+  handlePomoCompleted: function(p) {
+    pomo = p[0];
+    var d = new Date();
+    pomo.timestamp = d;
+    Store.pomodoroList.completedPomos.unshift(pomo);
+    console.log(pomo);
   }
 
 };

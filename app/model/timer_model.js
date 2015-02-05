@@ -45,7 +45,7 @@ timer_model = {
       // Stop
       Store.timer.startButtonLabel = 'Start';
       Store.timer.descrClass = "description";
-      ea.publish('POMO_COMPLETED', {minutes: Store.timer.minutes, seconds: Store.timer.minutes, description: Store.timer.description});
+      ea.publish('POMO_COMPLETED', {minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
     }
     Store.timer.timerRunning = !Store.timer.timerRunning;
 
