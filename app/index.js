@@ -1,11 +1,12 @@
 var ea;
 
 var Store = {
-  timer: timer_model
+  timer: timer_model,
+  pomodoroList: pomodoroListModel
 }
 
 function junkDrawer(misc) {
-  console.log('junkDrawer. stuff: ' + misc);
+  console.log('junkDrawer. this: ' + this.fn.name);
 }
 
 function handleTick(evt) {
@@ -13,6 +14,9 @@ function handleTick(evt) {
 }
 
 ea = new EventAggregator();
+
 Store.timer.setSubscriptions();
+Store.pomodoroList.setSubscriptions();
+
 setInterval(handleTick, 1000);
 

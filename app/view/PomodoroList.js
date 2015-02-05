@@ -1,15 +1,26 @@
 
 var PomodoroList = React.createClass({
   getInitialState: function() {
-    return timer_model;
+    return pomodoroList;
   },
 
+  componentDidMount: function() {
+    ea.subscribe('CHANGE', 'onChange', this.onChange);
+  },
+
+  onChange: function(e) {
+    this.setState(pomodoroListModel);
+  },
+
+
   render: function() {
+    var createItem = function(pomo) {
+      return <li>{pomo}</li>;
+    };
     return (
       <div>
-      <hr />
-      <h3>eddie would go</h3>
-      < hr/>
+      <h4>Completed Pomodoros</h4>
+      <ul>{Store.pomodoroList.completedPomos.map(createItem)}</ul>
       </div>
       );
   }

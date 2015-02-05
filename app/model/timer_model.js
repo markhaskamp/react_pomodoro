@@ -34,6 +34,7 @@ timer_model = {
 
   handleStartClick: function(evt) {
     if (!Store.timer.timerRunning) {
+      // Start
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.displaySeconds = '00';
@@ -41,8 +42,10 @@ timer_model = {
       Store.timer.startButtonLabel = 'Stop';
     }
     else {
+      // Stop
       Store.timer.startButtonLabel = 'Start';
       Store.timer.descrClass = "description";
+      ea.publish('POMO_COMPLETED', {minutes: Store.timer.minutes, seconds: Store.timer.minutes, description: Store.timer.description});
     }
     Store.timer.timerRunning = !Store.timer.timerRunning;
 

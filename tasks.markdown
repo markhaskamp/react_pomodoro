@@ -2,14 +2,13 @@
 
 ### Doing
 
+- on 'stop', add elapsed time, description to list of completed pomos
 
 ### To Do
 
-- stop button
 - keep list of attempted pomos
   - time of pomo
-  - completed
-  - interrupted
+  - description
 - breaks timer
 - pause button
 - abstract EA publish keys
@@ -19,6 +18,7 @@
 
 ### Done
 
+- stop button
 - what to do when pomo hits 00:00?
   - don't count down for Pomodoro
 - show countdown from 25:00
