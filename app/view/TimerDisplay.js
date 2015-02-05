@@ -21,13 +21,12 @@ var TimerDisplay = React.createClass({
   },
 
   render: function() {
-    buttonStyle = {'float':'left', 'width': 75};
-    timerStyle = {'float':'left', 'width':60, 'marginTop':15};
+    //buttonStyle = {'float':'left', 'width': 75};
     descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10, 'width':300};
 
     return (
       <div>
-        <div style={{'float':'left'}}>Doing what? <input type="text" id="txtDescription" /></div>
+        <div style={{'float':'left', 'marginBottom':25}}>Doing what? <input type="text" id="txtDescription" size="75" /></div>
         <div>
           <input type="button" 
                  id="btnStart" 
