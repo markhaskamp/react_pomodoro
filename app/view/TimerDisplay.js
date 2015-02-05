@@ -35,8 +35,8 @@ var TimerDisplay = React.createClass({
                  onClick={this.startButtonClicked} />
         </div>
         <div style={{'clear':'both'}}></div>
-        <div style={timerStyle}>{this.state.minutes}:{this.state.displaySeconds}</div>
-        <div className={this.state.descrClass} style={descrStyle}>{this.state.description}</div>
+        <div className="timer">{this.state.minutes}:{this.state.displaySeconds}</div>
+        <div className="description">{this.state.description}</div>
       </div>
     );
   }
@@ -44,4 +44,5 @@ var TimerDisplay = React.createClass({
 });
 
 React.render(<TimerDisplay />, document.getElementById('content'));
+
 
