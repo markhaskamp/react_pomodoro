@@ -35,7 +35,7 @@ var TimerDisplay = React.createClass({
         </div>
         <div style={{'clear':'both'}}></div>
         <div className="timer">{this.state.minutes}:{this.state.displaySeconds}</div>
-        <div className="description">{this.state.description}</div>
+        <div className={this.state.className}>{this.state.description}</div>
       </div>
     );
   }

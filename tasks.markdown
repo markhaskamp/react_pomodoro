@@ -6,18 +6,18 @@
 
 ### To Do
 
-- keep list of attempted pomos
-  - time of pomo
-  - description
-- breaks timer
+- run timer for breaks
 - pause button
 - abstract EA publish keys
   - 'TICK'
-  - 'TIMER_TOGGLE'
+  - 'TIMER\_TOGGLE'
   - etc
 
 ### Done
 
+- keep list of attempted pomos
+  - time of pomo
+  - description
 - stop button
 - what to do when pomo hits 00:00?
   - don't count down for Pomodoro

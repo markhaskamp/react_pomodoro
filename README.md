@@ -1,5 +1,9 @@
 # Pomodoro with react js
 
+## Usage
+
+Download files. Load _release/index.html_ in your browser.
+
 ## Design Notes
 
 ### goal

@@ -1,4 +1,5 @@
 .DS_Store
 *.*~
 *.swp
-release/
+release/.module-cache/
+
