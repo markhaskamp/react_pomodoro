@@ -22,7 +22,7 @@ timer_model = {
       }
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
 
-      if (Store.timer.minutes >= 0) {
+      if (Store.timer.minutes >= 25) {
         ndx = Math.floor(Store.timer.seconds / 4);
         Store.timer.className = 'description warning' + ndx;
       }
@@ -31,24 +31,24 @@ timer_model = {
     }
   },
 
+
   handleStartClick: function(evt) {
     if (!Store.timer.timerRunning) {
-      // Start
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.displaySeconds = '00';
       Store.timer.description = $('#txtDescription').val();
       Store.timer.startButtonLabel = 'Stop';
+      Store.timer.timerRunning = !Store.timer.timerRunning;
+      ea.publish('CHANGE');
     }
     else {
-      // Stop
       Store.timer.startButtonLabel = 'Start';
-        Store.timer.className = 'description';
+      Store.timer.className = 'description';
+      Store.timer.timerRunning = !Store.timer.timerRunning;
       ea.publish('POMO_COMPLETED', {minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
+      ea.publish('CHANGE');
     }
-    Store.timer.timerRunning = !Store.timer.timerRunning;
-
-    ea.publish('CHANGE');
-  }
+  },
 }
 
