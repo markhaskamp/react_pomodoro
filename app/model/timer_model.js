@@ -6,7 +6,7 @@ timer_model = {
   timerRunning:   false,
   description:    ' -- ',
   startButtonLabel: 'Start',
-  className: 'description',
+  className: 'col-md-8 description',
 
   setSubscriptions: function() {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);

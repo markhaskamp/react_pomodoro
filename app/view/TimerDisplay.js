@@ -21,21 +21,22 @@ var TimerDisplay = React.createClass({
   },
 
   render: function() {
-    //buttonStyle = {'float':'left', 'width': 75};
-    descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10, 'width':300};
 
     return (
       <div>
-        <div style={{'float':'left', 'marginBottom':25}}>Doing what? <input type="text" id="txtDescription" size="75" /></div>
+        <div>Doing what? <input type="text" id="txtDescription" size="75" /></div>
         <div>
           <input type="button" 
                  id="btnStart" 
                  value={this.state.startButtonLabel}
                  onClick={this.startButtonClicked} />
         </div>
-        <div style={{'clear':'both'}}></div>
-        <div className="timer">{this.state.minutes}:{this.state.displaySeconds}</div>
-        <div className={this.state.className}>{this.state.description}</div>
+        <div className="container">
+          <div className="row">
+            <div className="timer col-md-offset-1 col-md-1">{this.state.minutes}:{this.state.displaySeconds}</div>
+            <div className={this.state.className}>{this.state.description}</div>
+          </div>
+        </div>
       </div>
     );
   }

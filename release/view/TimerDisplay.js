@@ -21,21 +21,22 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
   },
 
   render: function() {
-    //buttonStyle = {'float':'left', 'width': 75};
-    descrStyle = {'marginLeft':60, 'marginTop':15, 'padding':3, 'paddingLeft':10, 'width':300};
 
     return (
       React.createElement("div", null, 
-        React.createElement("div", {style: {'float':'left', 'marginBottom':25}}, "Doing what? ", React.createElement("input", {type: "text", id: "txtDescription", size: "75"})), 
+        React.createElement("div", null, "Doing what? ", React.createElement("input", {type: "text", id: "txtDescription", size: "75"})), 
         React.createElement("div", null, 
           React.createElement("input", {type: "button", 
                  id: "btnStart", 
                  value: this.state.startButtonLabel, 
                  onClick: this.startButtonClicked})
         ), 
-        React.createElement("div", {style: {'clear':'both'}}), 
-        React.createElement("div", {className: "timer"}, this.state.minutes, ":", this.state.displaySeconds), 
-        React.createElement("div", {className: this.state.className}, this.state.description)
+        React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "timer col-md-offset-1 col-md-1"}, this.state.minutes, ":", this.state.displaySeconds), 
+            React.createElement("div", {className: this.state.className}, this.state.description)
+          )
+        )
       )
     );
   }
