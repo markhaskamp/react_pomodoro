@@ -31,7 +31,7 @@ var TimerDisplay = React.createClass({
             <div className="col-md-10">
               <div className="input-group">
                 <span className="input-group-addon">
-                  <span className="timer col-md-1">{this.state.minutes}:{foo(this.state.seconds)}</span>
+                  <span className="timer col-md-1">{this.state.minutes}:{seconds_display(this.state.seconds)}</span>
                 </span>
                 <input type="text" 
                        className={this.state.className} 

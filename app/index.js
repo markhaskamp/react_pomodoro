@@ -5,7 +5,7 @@ var Store = {
   pomodoroList: pomodoroListModel
 }
 
-function foo(s) {
+function seconds_display(s) {
   return s < 10 ? '0' + s : s;
 }
 
