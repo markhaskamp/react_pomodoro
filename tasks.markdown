@@ -6,12 +6,10 @@
 
 ### To Do
 
-- run timer for breaks
 - pause button
-- abstract EA publish keys
-  - 'TICK'
-  - 'TIMER\_TOGGLE'
-  - etc
+- run timer for breaks
+- clear the Completed Pomodoros list
+- delete a single Completed Pomodoro
 
 ### Done
 
