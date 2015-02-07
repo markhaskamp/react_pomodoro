@@ -19,6 +19,13 @@ var PomodoroList = React.createClass({
     };
     return (
       <div>
+        <div className="container">
+        <div className="row">
+        <div className="col-md-4">eddie would go</div>
+        <div className="col-md-3">we excel on ice</div>
+        <div className="col-md-4">always read the plaque</div>
+        </div>
+        </div>
       <h4>Completed Pomodoros</h4>
       <ul>{Store.pomodoroList.completedPomos.map(createItem)}</ul>
       </div>
