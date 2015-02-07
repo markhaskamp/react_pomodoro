@@ -25,14 +25,22 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
     return (
       React.createElement("div", null, 
         React.createElement("div", {className: "container"}, 
+
           React.createElement("div", {className: "row"}, 
-            React.createElement("div", {className: "timer col-md-1"}, this.state.minutes, ":", this.state.displaySeconds), 
-            React.createElement("div", {className: this.state.className}, React.createElement("input", {type: "text", className: "form-control", placeholder: "wut"})), 
-            React.createElement("div", {className: "col-md-1"}, 
-              React.createElement("input", {type: "button", id: "btnStart", value: this.state.startButtonLabel, onClick: this.startButtonClicked})
+            React.createElement("div", {className: "col-md-offset-1 col-md-5"}, 
+              React.createElement("div", {className: "input-group"}, 
+                React.createElement("span", {className: "input-group-addon"}, 
+                  React.createElement("span", null, this.state.minutes, ":", this.state.displaySeconds)
+                ), 
+                React.createElement("input", {type: "text", className: "form-control", placeholder: "doing what..."}), 
+                React.createElement("span", {className: "input-group-btn"}, 
+                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.startButtonClicked}, this.state.startButtonLabel)
+                )
+              )
             )
           )
         )
+
       )
     );
   }
@@ -40,6 +48,4 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
 });
 
 React.render(React.createElement(TimerDisplay, null), document.getElementById('content'));
-
-
 
