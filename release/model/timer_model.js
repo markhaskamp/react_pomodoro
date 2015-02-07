@@ -47,6 +47,11 @@ timer_model = {
       Store.timer.className = 'form-control description';
       Store.timer.timerRunning = !Store.timer.timerRunning;
       ea.publish('POMO_COMPLETED', {minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
+
+      Store.timer.minutes = 0;
+      Store.timer.seconds = 0;
+      Store.timer.displaySeconds = '00';
+
       ea.publish('CHANGE');
     }
   },
