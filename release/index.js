@@ -5,6 +5,10 @@ var Store = {
   pomodoroList: pomodoroListModel
 }
 
+function foo(s) {
+  return s < 10 ? '0' + s : s;
+}
+
 function junkDrawer(misc) {
   console.log('junkDrawer. this: ' + this.fn.name);
 }

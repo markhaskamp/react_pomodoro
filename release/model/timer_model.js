@@ -2,7 +2,6 @@
 timer_model = {
   minutes:        0,
   seconds:        0,
-  displaySeconds: '00',
   timerRunning:   false,
   description:    ' -- ',
   startButtonLabel: 'Start',
@@ -20,7 +19,7 @@ timer_model = {
         Store.timer.seconds = 0;
         Store.timer.minutes = Store.timer.minutes + 1;
       }
-      Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
+      // Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
 
       if (Store.timer.minutes >= 25) {
         ndx = Math.floor(Store.timer.seconds / 4);
@@ -36,7 +35,7 @@ timer_model = {
     if (!Store.timer.timerRunning) {
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
-      Store.timer.displaySeconds = '00';
+      // Store.timer.displaySeconds = '00';
       Store.timer.description = $('#txtDescription').val();
       Store.timer.startButtonLabel = 'Stop';
       Store.timer.timerRunning = !Store.timer.timerRunning;
@@ -50,7 +49,7 @@ timer_model = {
 
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
-      Store.timer.displaySeconds = '00';
+      // Store.timer.displaySeconds = '00';
 
       ea.publish('CHANGE');
     }

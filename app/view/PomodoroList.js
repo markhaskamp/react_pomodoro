@@ -16,9 +16,9 @@ var PomodoroList = React.createClass({
   render: function() {
     var createItem = function(pomo) {
       return  <div className="row">
-                <div className="col-md-1">{pomo.timestamp.getHours()}:{pomo.timestamp.getMinutes()}</div>
+                <div className="col-md-1">{pomo.timestamp.getHours()}:{foo(pomo.timestamp.getMinutes())}</div>
                 <div className="col-md-5">{pomo.description}</div>
-                <div className="col-md-4">{pomo.minutes}:{pomo.seconds}</div>
+                <div className="col-md-4">{pomo.minutes}:{foo(pomo.seconds)}</div>
               </div>
     };
     return (
