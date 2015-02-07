@@ -18,7 +18,8 @@
 .warning15 { background-color: #ff0505;}
 
 .timer {
-  font-family: Impact, Charcoal, sans-serif;
+  font-family: "Monaco", "Lucida Console", "Courier New";
+  font-weight: bold;
   font-size: 2.0em;
   color: black;
 }
