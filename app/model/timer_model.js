@@ -22,7 +22,7 @@ timer_model = {
       }
       Store.timer.displaySeconds = Store.timer.seconds < 10 ? '0' + Store.timer.seconds : Store.timer.seconds;
 
-      if (Store.timer.minutes >= 25) {
+      if (Store.timer.minutes >= 0) {
         ndx = Math.floor(Store.timer.seconds / 4);
         Store.timer.className = 'description warning' + ndx;
       }
