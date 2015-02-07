@@ -15,9 +15,11 @@ var PomodoroList = React.createClass({displayName: "PomodoroList",
 
   render: function() {
     var createItem = function(pomo) {
-      return React.createElement("div", null, 
-        pomo.timestamp.getHours(), ":", pomo.timestamp.getMinutes(), " - ", pomo.description, ", ", pomo.minutes, ":", pomo.seconds
-      );
+      return  React.createElement("div", {className: "row"}, 
+                React.createElement("div", {className: "col-md-1"}, pomo.timestamp.getHours(), ":", pomo.timestamp.getMinutes()), 
+                React.createElement("div", {className: "col-md-5"}, pomo.description), 
+                React.createElement("div", {className: "col-md-4"}, pomo.minutes, ":", pomo.seconds)
+              )
     };
     return (
       React.createElement("div", null, 
