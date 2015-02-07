@@ -12,6 +12,10 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
     ea.publish('START_CLICKED', {}); 
   },
 
+  breakButtonClicked: function() {
+    ea.publish('BREAK_CLICKED', {}); 
+  },
+
   descriptionChanged: function(evt) {
     ea.publish('DESCRIPTION_CHANGED', {});
   },
@@ -40,6 +44,9 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
                 React.createElement("span", {className: "input-group-btn"}, 
                   React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.startButtonClicked}, 
                     this.state.startButtonLabel
+                  ), 
+                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.breakButtonClicked}, 
+                    "Break"
                   )
                 )
               )
