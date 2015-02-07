@@ -33,7 +33,10 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
                 React.createElement("span", {className: "input-group-addon"}, 
                   React.createElement("span", {className: "timer col-md-1"}, this.state.minutes, ":", this.state.displaySeconds)
                 ), 
-                React.createElement("input", {type: "text", className: this.state.className, placeholder: "doing what..."}), 
+                React.createElement("input", {type: "text", 
+                       className: this.state.className, 
+                       id: "txtDescription", 
+                       placeholder: "doing what..."}), 
                 React.createElement("span", {className: "input-group-btn"}, 
                   React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.startButtonClicked}, 
                     this.state.startButtonLabel

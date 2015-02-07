@@ -44,7 +44,7 @@ timer_model = {
     }
     else {
       Store.timer.startButtonLabel = 'Start';
-      Store.timer.className = 'description';
+      Store.timer.className = 'form-control description';
       Store.timer.timerRunning = !Store.timer.timerRunning;
       ea.publish('POMO_COMPLETED', {minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
       ea.publish('CHANGE');
