@@ -19,8 +19,13 @@ var PomodoroList = React.createClass({displayName: "PomodoroList",
     };
     return (
       React.createElement("div", null, 
-      React.createElement("h4", null, "Completed Pomodoros"), 
-      React.createElement("ul", null, Store.pomodoroList.completedPomos.map(createItem))
+        React.createElement("p", null), 
+        React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "col-md-12"}, React.createElement("h4", null, "Completed Pomodoros"))
+          )
+        ), 
+        React.createElement("ul", null, Store.pomodoroList.completedPomos.map(createItem))
       )
       );
   }

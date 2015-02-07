@@ -24,17 +24,13 @@ var TimerDisplay = React.createClass({
 
     return (
       <div>
-        <div>Doing what? <input type="text" id="txtDescription" size="75" /></div>
-        <div>
-          <input type="button" 
-                 id="btnStart" 
-                 value={this.state.startButtonLabel}
-                 onClick={this.startButtonClicked} />
-        </div>
         <div className="container">
           <div className="row">
-            <div className="timer col-md-offset-1 col-md-1">{this.state.minutes}:{this.state.displaySeconds}</div>
-            <div className={this.state.className}>{this.state.description}</div>
+            <div className="timer col-md-1">{this.state.minutes}:{this.state.displaySeconds}</div>
+            <div className={this.state.className}><input type="text" className="form-control" placeholder="wut"/></div>
+            <div className="col-md-1">
+              <input type="button" id="btnStart" value={this.state.startButtonLabel} onClick={this.startButtonClicked} />
+            </div>
           </div>
         </div>
       </div>
@@ -44,5 +40,6 @@ var TimerDisplay = React.createClass({
 });
 
 React.render(<TimerDisplay />, document.getElementById('content'));
+
 
 
