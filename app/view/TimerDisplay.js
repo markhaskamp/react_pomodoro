@@ -33,7 +33,7 @@ var TimerDisplay = React.createClass({
                 <span className="input-group-addon">
                   <span className="timer">{this.state.minutes}:{this.state.displaySeconds}</span>
                 </span>
-                <input type="text" className="form-control description" placeholder="doing what..." />
+                <input type="text" className={this.state.className} placeholder="doing what..." />
                 <span className="input-group-btn">
                   <button className="btn btn-default" type="button" onClick={this.startButtonClicked}>{this.state.startButtonLabel}</button>
                 </span>
