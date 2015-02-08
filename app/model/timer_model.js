@@ -6,6 +6,7 @@ timer_model = {
   description:    ' -- ',
   startButtonLabel: 'Start',
   className: 'form-control description',
+  isBreak:        false,
   goalMinutes:    25,
 
   setSubscriptions: function() {
@@ -35,6 +36,8 @@ timer_model = {
 
   handleStartClick: function(evt) {
     if (!Store.timer.timerRunning) {
+      Store.timer.isBreak = false;
+
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.description = $('#txtDescription').val();
@@ -47,7 +50,7 @@ timer_model = {
       Store.timer.startButtonLabel = 'Start';
       Store.timer.className = 'form-control description';
       Store.timer.timerRunning = !Store.timer.timerRunning;
-      ea.publish('POMO_COMPLETED', {minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
+      ea.publish('POMO_COMPLETED', {isBreak: timer_model.isBreak, minutes: timer_model.minutes, seconds: timer_model.seconds, description: Store.timer.description});
 
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
@@ -57,6 +60,7 @@ timer_model = {
   },
 
   handleBreakClick: function(evt) {
+    Store.timer.isBreak = true;
     goalMinutes = evt[0].goalMinutes;
 
     Store.timer.minutes = 0;

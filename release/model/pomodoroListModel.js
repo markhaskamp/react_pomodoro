@@ -12,6 +12,9 @@ pomodoroListModel = {
     pomo = p[0];
     var d = new Date();
     pomo.timestamp = d;
+    if (pomo.isBreak) {
+      pomo.description = 'break';
+    }
     Store.pomodoroList.completedPomos.unshift(pomo);
   }
 
