@@ -2,22 +2,25 @@
 
 ### Doing
 
-- anticapate next type
-  - pomodoro after break
-  - break after pomodoro
-  - long break if 4rd break
+- pause button
+  - have Start/Pause/Stop button cycle through its 3 options
 
 ### To Do
 
-- pause button
-  - have Start/Pause/Stop button cycle through its 3 options
 - clear the Completed Pomodoros list
 - delete a single Completed Pomodoro
 - add some juice to the completed list
   - types in their own column, with graphical rep of their comparative lengths
+- read current value of description when writing to completed pomo list
+- anticapate next type
+  - long break if 4rd break
 
 ### Done
 
+- anticapate next type
+  - pomodoro after break
+  - break after pomodoro
+  - long break if 4rd break
 - 3 labels, Pomo, Break, Long Break
   - accept clicks to set type
   - style accordingly
