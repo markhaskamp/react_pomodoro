@@ -12,12 +12,16 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
     ea.publish('START_CLICKED', {}); 
   },
 
-  breakButtonClicked: function() {
-    ea.publish('BREAK_CLICKED', {goalMinutes: 5}); 
+  pomodoroLabelClicked: function() {
+    ea.publish('SET_TYPE', {type: 'pomodoro'});
   },
 
-  longBreakButtonClicked: function() {
-    ea.publish('BREAK_CLICKED', {goalMinutes: 15}); 
+  breakLabelClicked: function() {
+    ea.publish('SET_TYPE', {type: 'break'});
+  },
+
+  longBreakLabelClicked: function() {
+    ea.publish('SET_TYPE', {type: 'longBreak'});
   },
 
   descriptionChanged: function(evt) {
@@ -34,8 +38,11 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
       React.createElement("div", null, 
         React.createElement("p", null), 
         React.createElement("div", {className: "container"}, 
+
           React.createElement("div", {className: "row"}, 
-            React.createElement("div", {className: "col-md-2 typeLabel"}, this.state.typeLabel)
+            React.createElement("div", {id: "pomodoroLabel", className: "col-md-1 typeLabel selected", onClick: this.pomodoroLabelClicked}, "pomodoro"), 
+            React.createElement("div", {id: "breakLabel", className: "col-md-1 typeLabel", onClick: this.breakLabelClicked}, "break"), 
+            React.createElement("div", {id: "longBreakLabel", className: "col-md-2 typeLabel", onClick: this.longBreakLabelClicked}, "long break")
           ), 
 
           React.createElement("div", {className: "row"}, 
@@ -51,9 +58,7 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
                 React.createElement("span", {className: "input-group-btn"}, 
                   React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.startButtonClicked}, 
                     this.state.startButtonLabel
-                  ), 
-                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.breakButtonClicked}, "Break"), 
-                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.longBreakButtonClicked}, "Long Break")
+                  )
                 )
               )
             )

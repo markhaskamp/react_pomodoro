@@ -14,7 +14,7 @@ timer_model = {
     ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
     ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
     ea.subscribe('BREAK_CLICKED', 'handleBreakClick', Store.timer.handleBreakClick);
-
+    ea.subscribe('SET_TYPE', 'handleSetType', Store.timer.handleSetType);
   },
 
   handleTick: function(evt) {
@@ -44,7 +44,6 @@ timer_model = {
       Store.timer.seconds = 0;
       Store.timer.description = $('#txtDescription').val();
       Store.timer.startButtonLabel = 'Stop';
-      Store.timer.goalMinutes = 25;
       Store.timer.timerRunning = !Store.timer.timerRunning;
       ea.publish('CHANGE');
     }
@@ -60,6 +59,22 @@ timer_model = {
 
       ea.publish('CHANGE');
     }
+  },
+
+  handleSetType: function(evt) {
+    type = evt[0].type;
+
+    if (type === 'pomodoro') {
+      Store.timer.goalMinutes = 3;
+    }
+    else if (type === 'break') {
+      Store.timer.goalMinutes = 1;
+    }
+    else {
+      Store.timer.goalMinutes = 2;
+    }
+
+    ea.publish('CHANGE');
   },
 
   handleBreakClick: function(evt) {
