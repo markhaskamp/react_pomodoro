@@ -15,7 +15,6 @@ timer_model = {
   setSubscriptions: function() {
     ea.subscribe('TICK',          'handleTick',       Store.timer.handleTick);
     ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
-    ea.subscribe('BREAK_CLICKED', 'handleBreakClick', Store.timer.handleBreakClick);
     ea.subscribe('SET_TYPE',      'handleSetType',    Store.timer.handleSetType);
   },
 
@@ -39,8 +38,6 @@ timer_model = {
 
   handleStartClick: function(evt) {
     if (!Store.timer.timerRunning) {
-      Store.timer.isBreak = false;
-
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.description = $('#txtDescription').val();
@@ -65,18 +62,21 @@ timer_model = {
     type = evt[0].type;
 
     if (type === 'pomodoro') {
+      Store.timer.isBreak = false;
       Store.timer.goalMinutes = 25;
       Store.timer.pomoTypeLabelClass="col-md-1 typeLabel selected";
       Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else if (type === 'break') {
+      Store.timer.isBreak = true;
       Store.timer.goalMinutes = 5;
       Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
       Store.timer.breakTypeLabelClass="col-md-1 typeLabel selected";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else {
+      Store.timer.isBreak = true;
       Store.timer.goalMinutes = 15;
       Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
       Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
@@ -85,18 +85,5 @@ timer_model = {
 
     ea.publish('CHANGE');
   },
-
-  handleBreakClick: function(evt) {
-    Store.timer.isBreak = true;
-    goalMinutes = evt[0].goalMinutes;
-
-    Store.timer.minutes = 0;
-    Store.timer.seconds = 0;
-    Store.timer.description = $('#txtDescription').val();
-    Store.timer.startButtonLabel = 'Stop';
-    Store.timer.goalMinutes = goalMinutes;
-    Store.timer.timerRunning = !Store.timer.timerRunning;
-    ea.publish('CHANGE');
-  }
 }
 
