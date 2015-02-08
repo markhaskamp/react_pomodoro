@@ -7,6 +7,7 @@
 ### To Do
 
 - pause button
+- push to heroku
 - run timer for breaks
 - clear the Completed Pomodoros list
 - delete a single Completed Pomodoro
