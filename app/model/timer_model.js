@@ -54,6 +54,13 @@ timer_model = {
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
 
+      if (Store.timer.isBreak) {
+        ea.publish('SET_TYPE', {type: 'pomodoro'});
+      }
+      else {
+        ea.publish('SET_TYPE', {type: 'break'});
+      }
+
       ea.publish('CHANGE');
     }
   },

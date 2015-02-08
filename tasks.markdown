@@ -2,15 +2,13 @@
 
 ### Doing
 
-- 3 labels, Pomo, Break, Long Break
-  - accept clicks to set type
-  - style accordingly
-  - pomodoro is default
+- anticapate next type
+  - pomodoro after break
+  - break after pomodoro
+  - long break if 4rd break
 
 ### To Do
 
-- activate/deactivate Start/Stop, Break, LongBreak buttons appropriately
-- don't need both _isBreak_ property and _typeLabel_ property
 - pause button
   - have Start/Pause/Stop button cycle through its 3 options
 - clear the Completed Pomodoros list
@@ -20,6 +18,10 @@
 
 ### Done
 
+- 3 labels, Pomo, Break, Long Break
+  - accept clicks to set type
+  - style accordingly
+  - pomodoro is default
 - on 'stop', add elapsed time, description to list of completed pomos
 - run timer for breaks
 - keep list of attempted pomos
