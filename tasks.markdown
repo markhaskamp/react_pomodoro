@@ -2,6 +2,9 @@
 
 ### Doing
 
+- 3 labels, Pomo, Break, Long Break
+  - accept clicks to set type
+  - style accordingly
 
 ### To Do
 
