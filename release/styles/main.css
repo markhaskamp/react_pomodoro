@@ -17,6 +17,12 @@
 .warning14 { background-color: #ff1515;}
 .warning15 { background-color: #ff0505;}
 
+.typeLabel {
+  font-size: 1.25em;
+  color: #000099;
+  text-align: center;
+}
+
 .timer {
   font-family: "Monaco", "Lucida Console", "Courier New";
   font-weight: bold;

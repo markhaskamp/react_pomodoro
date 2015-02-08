@@ -2,18 +2,22 @@
 
 ### Doing
 
-- on 'stop', add elapsed time, description to list of completed pomos
 
 ### To Do
 
+- activate/deactivate Start/Stop, Break, LongBreak buttons appropriately
+- don't need both _isBreak_ property and _typeLabel_ property
 - pause button
-- push to heroku
-- run timer for breaks
+  - have Start/Pause/Stop button cycle through its 3 options
 - clear the Completed Pomodoros list
 - delete a single Completed Pomodoro
+- add some juice to the completed list
+  - types in their own column, with graphical rep of their comparative lengths
 
 ### Done
 
+- on 'stop', add elapsed time, description to list of completed pomos
+- run timer for breaks
 - keep list of attempted pomos
   - time of pomo
   - description

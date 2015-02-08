@@ -1,5 +1,6 @@
 
 timer_model = {
+  typeLabel:      '/dev/null',
   minutes:        0,
   seconds:        0,
   timerRunning:   false,
@@ -38,6 +39,7 @@ timer_model = {
     if (!Store.timer.timerRunning) {
       Store.timer.isBreak = false;
 
+      Store.timer.typeLabel = 'pomodoro';
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.description = $('#txtDescription').val();
@@ -47,6 +49,7 @@ timer_model = {
       ea.publish('CHANGE');
     }
     else {
+      Store.timer.typeLabel = '/dev/null';
       Store.timer.startButtonLabel = 'Start';
       Store.timer.className = 'form-control description';
       Store.timer.timerRunning = !Store.timer.timerRunning;
@@ -62,6 +65,12 @@ timer_model = {
   handleBreakClick: function(evt) {
     Store.timer.isBreak = true;
     goalMinutes = evt[0].goalMinutes;
+
+    if (goalMinutes === 15) {
+      Store.timer.typeLabel= 'long break';
+    } else {
+      Store.timer.typeLabel= 'break';
+    }
 
     Store.timer.minutes = 0;
     Store.timer.seconds = 0;

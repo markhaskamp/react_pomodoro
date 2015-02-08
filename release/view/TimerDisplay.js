@@ -34,6 +34,9 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
       React.createElement("div", null, 
         React.createElement("p", null), 
         React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "col-md-2 typeLabel"}, this.state.typeLabel)
+          ), 
 
           React.createElement("div", {className: "row"}, 
             React.createElement("div", {className: "col-md-10"}, 

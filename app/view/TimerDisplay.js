@@ -34,6 +34,9 @@ var TimerDisplay = React.createClass({
       <div>
         <p/>
         <div className="container">
+          <div className="row">
+            <div className="col-md-2 typeLabel">{this.state.typeLabel}</div>
+          </div>
 
           <div className="row">
             <div className="col-md-10">
