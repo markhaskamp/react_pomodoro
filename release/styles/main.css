@@ -25,7 +25,8 @@
 
 .typeLabel:hover {
   font-size: 1.25em;
-  color: #555;
+  color: #990000;
+  font-style: italic;
   cursor: pointer;
 }
 

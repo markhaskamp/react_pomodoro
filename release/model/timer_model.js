@@ -1,6 +1,5 @@
 
 timer_model = {
-  typeLabel:      '/dev/null',
   minutes:        0,
   seconds:        0,
   timerRunning:   false,
@@ -9,12 +8,15 @@ timer_model = {
   className: 'form-control description',
   isBreak:        false,
   goalMinutes:    25,
+  pomoTypeLabelClass:      'col-md-1 typeLabel selected',
+  breakTypeLabelClass:     'col-md-1 typeLabel',
+  longBreakTypeLabelClass: 'col-md-2 typeLabel',
 
   setSubscriptions: function() {
-    ea.subscribe('TICK', 'handleTick', Store.timer.handleTick);
+    ea.subscribe('TICK',          'handleTick',       Store.timer.handleTick);
     ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
     ea.subscribe('BREAK_CLICKED', 'handleBreakClick', Store.timer.handleBreakClick);
-    ea.subscribe('SET_TYPE', 'handleSetType', Store.timer.handleSetType);
+    ea.subscribe('SET_TYPE',      'handleSetType',    Store.timer.handleSetType);
   },
 
   handleTick: function(evt) {
@@ -39,7 +41,6 @@ timer_model = {
     if (!Store.timer.timerRunning) {
       Store.timer.isBreak = false;
 
-      Store.timer.typeLabel = 'pomodoro';
       Store.timer.minutes = 0;
       Store.timer.seconds = 0;
       Store.timer.description = $('#txtDescription').val();
@@ -48,7 +49,6 @@ timer_model = {
       ea.publish('CHANGE');
     }
     else {
-      Store.timer.typeLabel = '/dev/null';
       Store.timer.startButtonLabel = 'Start';
       Store.timer.className = 'form-control description';
       Store.timer.timerRunning = !Store.timer.timerRunning;
@@ -65,13 +65,22 @@ timer_model = {
     type = evt[0].type;
 
     if (type === 'pomodoro') {
-      Store.timer.goalMinutes = 3;
+      Store.timer.goalMinutes = 25;
+      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel selected";
+      Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else if (type === 'break') {
-      Store.timer.goalMinutes = 1;
+      Store.timer.goalMinutes = 5;
+      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.breakTypeLabelClass="col-md-1 typeLabel selected";
+      Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else {
-      Store.timer.goalMinutes = 2;
+      Store.timer.goalMinutes = 15;
+      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel selected";
     }
 
     ea.publish('CHANGE');
@@ -80,12 +89,6 @@ timer_model = {
   handleBreakClick: function(evt) {
     Store.timer.isBreak = true;
     goalMinutes = evt[0].goalMinutes;
-
-    if (goalMinutes === 15) {
-      Store.timer.typeLabel= 'long break';
-    } else {
-      Store.timer.typeLabel= 'break';
-    }
 
     Store.timer.minutes = 0;
     Store.timer.seconds = 0;
