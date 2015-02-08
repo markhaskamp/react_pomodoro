@@ -57,13 +57,15 @@ timer_model = {
   },
 
   handleBreakClick: function(evt) {
-      Store.timer.minutes = 0;
-      Store.timer.seconds = 0;
-      Store.timer.description = $('#txtDescription').val();
-      Store.timer.startButtonLabel = 'Stop';
-      Store.timer.goalMinutes = 5;
-      Store.timer.timerRunning = !Store.timer.timerRunning;
-      ea.publish('CHANGE');
+    goalMinutes = evt[0].goalMinutes;
+
+    Store.timer.minutes = 0;
+    Store.timer.seconds = 0;
+    Store.timer.description = $('#txtDescription').val();
+    Store.timer.startButtonLabel = 'Stop';
+    Store.timer.goalMinutes = goalMinutes;
+    Store.timer.timerRunning = !Store.timer.timerRunning;
+    ea.publish('CHANGE');
   }
 }
 

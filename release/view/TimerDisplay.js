@@ -13,7 +13,11 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
   },
 
   breakButtonClicked: function() {
-    ea.publish('BREAK_CLICKED', {}); 
+    ea.publish('BREAK_CLICKED', {goalMinutes: 5}); 
+  },
+
+  longBreakButtonClicked: function() {
+    ea.publish('BREAK_CLICKED', {goalMinutes: 15}); 
   },
 
   descriptionChanged: function(evt) {
@@ -45,9 +49,8 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
                   React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.startButtonClicked}, 
                     this.state.startButtonLabel
                   ), 
-                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.breakButtonClicked}, 
-                    "Break"
-                  )
+                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.breakButtonClicked}, "Break"), 
+                  React.createElement("button", {className: "btn btn-default", type: "button", onClick: this.longBreakButtonClicked}, "Long Break")
                 )
               )
             )
