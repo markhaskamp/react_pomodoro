@@ -8,9 +8,9 @@ timer_model = {
   className: 'form-control description',
   isBreak:        false,
   goalMinutes:    25,
-  pomoTypeLabelClass:      'col-md-1 typeLabel selected',
-  breakTypeLabelClass:     'col-md-1 typeLabel',
-  longBreakTypeLabelClass: 'col-md-2 typeLabel',
+  pomoTypeLabelClass:      'col-sm-1 typeLabel selected',
+  breakTypeLabelClass:     'col-sm-1 typeLabel',
+  longBreakTypeLabelClass: 'col-sm-2 typeLabel',
 
   setSubscriptions: function() {
     ea.subscribe('TICK',          'handleTick',       Store.timer.handleTick);

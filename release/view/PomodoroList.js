@@ -16,9 +16,9 @@ var PomodoroList = React.createClass({displayName: "PomodoroList",
   render: function() {
     var createItem = function(pomo) {
       return  React.createElement("div", {className: "row"}, 
-                React.createElement("div", {className: "col-md-1"}, pomo.timestamp.getHours(), ":", seconds_display(pomo.timestamp.getMinutes())), 
-                React.createElement("div", {className: "col-md-5"}, pomo.description), 
-                React.createElement("div", {className: "col-md-4"}, pomo.minutes, ":", seconds_display(pomo.seconds))
+                React.createElement("div", {className: "col-sm-1"}, pomo.timestamp.getHours(), ":", seconds_display(pomo.timestamp.getMinutes())), 
+                React.createElement("div", {className: "col-sm-5"}, pomo.description), 
+                React.createElement("div", {className: "col-sm-4"}, pomo.minutes, ":", seconds_display(pomo.seconds))
               )
     };
     return (
@@ -26,7 +26,7 @@ var PomodoroList = React.createClass({displayName: "PomodoroList",
         React.createElement("p", null), 
         React.createElement("div", {className: "container"}, 
           React.createElement("div", {className: "row"}, 
-            React.createElement("div", {className: "col-md-12"}, React.createElement("h4", null, "Completed Pomodoros"))
+            React.createElement("div", {className: "col-sm-12"}, React.createElement("h4", null, "Completed Pomodoros"))
           )
         ), 
         React.createElement("div", {className: "container"}, 

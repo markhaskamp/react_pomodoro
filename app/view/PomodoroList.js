@@ -16,9 +16,9 @@ var PomodoroList = React.createClass({
   render: function() {
     var createItem = function(pomo) {
       return  <div className="row">
-                <div className="col-md-1">{pomo.timestamp.getHours()}:{seconds_display(pomo.timestamp.getMinutes())}</div>
-                <div className="col-md-5">{pomo.description}</div>
-                <div className="col-md-4">{pomo.minutes}:{seconds_display(pomo.seconds)}</div>
+                <div className="col-sm-1">{pomo.timestamp.getHours()}:{seconds_display(pomo.timestamp.getMinutes())}</div>
+                <div className="col-sm-5">{pomo.description}</div>
+                <div className="col-sm-4">{pomo.minutes}:{seconds_display(pomo.seconds)}</div>
               </div>
     };
     return (
@@ -26,7 +26,7 @@ var PomodoroList = React.createClass({
         <p/>
         <div className="container">
           <div className="row">
-            <div className="col-md-12"><h4>Completed Pomodoros</h4></div>
+            <div className="col-sm-12"><h4>Completed Pomodoros</h4></div>
           </div>
         </div>
         <div className="container">
