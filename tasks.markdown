@@ -1,3 +1,19 @@
+## Notes
+
+### hack to serve page from heroku
+
+- _trick_ heroku in to thinking it's a php app
+  - renamed index.html to home.html
+  - created home.php which contains
+
+    <?php include_once("home.html"); ?>
+
+- copy release/ ~/dev/pomodororeact/
+- from ~/dev/pomodororeact/
+  - add and commit to git repo
+  - git push heroku master
+
+
 ## Tasks
 
 ### Doing
@@ -37,4 +53,5 @@
 - use Flux to show seconds elapsed not using forceUpdate
 - use Flux to show seconds elapsed using forceUpdate
 - show seconds elapsed
+
 

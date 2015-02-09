@@ -2,7 +2,11 @@
 
 ## Usage
 
-Download files. Load _release/index.html_ in your browser.
+https://reactpomodoro.herokuapp.com/
+
+or
+
+Download files. Load _release/home.html_ in your browser.
 
 ## Design Notes
 
