@@ -8,9 +8,12 @@ timer_model = {
   className: 'form-control description',
   isBreak:        false,
   goalMinutes:    25,
-  pomoTypeLabelClass:      'col-sm-1 typeLabel selected',
-  breakTypeLabelClass:     'col-sm-1 typeLabel',
-  longBreakTypeLabelClass: 'col-sm-2 typeLabel',
+  pomoMinutes:    25,
+  breakMinutes:    5,
+  longBreakMinutes: 15,
+  pomoTypeLabelClass:      'col-md-2 typeLabel selected',
+  breakTypeLabelClass:     'col-md-2 typeLabel',
+  longBreakTypeLabelClass: 'col-md-2 typeLabel',
 
   setSubscriptions: function() {
     ea.subscribe('TICK',          'handleTick',       Store.timer.handleTick);
@@ -71,22 +74,22 @@ timer_model = {
     if (type === 'pomodoro') {
       Store.timer.isBreak = false;
       Store.timer.goalMinutes = 25;
-      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel selected";
-      Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.pomoTypeLabelClass="col-md-2 typeLabel selected";
+      Store.timer.breakTypeLabelClass="col-md-2 typeLabel";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else if (type === 'break') {
       Store.timer.isBreak = true;
       Store.timer.goalMinutes = 5;
-      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
-      Store.timer.breakTypeLabelClass="col-md-1 typeLabel selected";
+      Store.timer.pomoTypeLabelClass="col-md-2 typeLabel";
+      Store.timer.breakTypeLabelClass="col-md-2 typeLabel selected";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else {
       Store.timer.isBreak = true;
       Store.timer.goalMinutes = 15;
-      Store.timer.pomoTypeLabelClass="col-md-1 typeLabel";
-      Store.timer.breakTypeLabelClass="col-md-1 typeLabel";
+      Store.timer.pomoTypeLabelClass="col-md-2 typeLabel";
+      Store.timer.breakTypeLabelClass="col-md-2 typeLabel";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel selected";
     }
 

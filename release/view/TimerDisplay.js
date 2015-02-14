@@ -40,9 +40,9 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
         React.createElement("div", {className: "container"}, 
 
           React.createElement("div", {className: "row"}, 
-            React.createElement("div", {id: "pomodoroLabel", className: this.state.pomoTypeLabelClass, onClick: this.pomodoroLabelClicked}, "pomodoro"), 
-            React.createElement("div", {id: "breakLabel", className: this.state.breakTypeLabelClass, onClick: this.breakLabelClicked}, "break"), 
-            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break")
+            React.createElement("div", {id: "pomodoroLabel", className: this.state.pomoTypeLabelClass, onClick: this.pomodoroLabelClicked}, "pomodoro [", this.state.pomoMinutes, "]"), 
+            React.createElement("div", {id: "breakLabel", className: this.state.breakTypeLabelClass, onClick: this.breakLabelClicked}, "break [", this.state.breakMinutes, "]"), 
+            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break [", this.state.longBreakMinutes, "]")
           ), 
 
           React.createElement("div", {className: "row"}, 
