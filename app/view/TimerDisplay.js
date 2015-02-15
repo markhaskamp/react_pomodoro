@@ -28,6 +28,10 @@ var TimerDisplay = React.createClass({
     ea.publish('SETUP', {});
   },
 
+  pomoMinutesChanged: function() {
+    console.log('ea.publish("POMO_MINUTES_CHANGED")');
+  },
+
   descriptionChanged: function(evt) {
     ea.publish('DESCRIPTION_CHANGED', {});
   },
@@ -72,25 +76,22 @@ var TimerDisplay = React.createClass({
         </div>
 
         <div className="row">
-          <div className="col-md-offset-1 col-md-3">
+          <div className="col-md-offset-1 col-md-2">
             <label>Pomodoro minutes: </label>
-            <input type="text" id="pomoMinutes" readOnly />
           </div>
           <div className="col-md-3" id="pomo-slider"></div>
         </div>
 
         <div className="row">
-          <div className="col-md-offset-1 col-md-3">
+          <div className="col-md-offset-1 col-md-2">
             <label>Break minutes: </label>
-            <input type="text" id="breakMinutes" readOnly />
           </div>
           <div className="col-md-3" id="break-slider"></div>
         </div>
 
         <div className="row">
-          <div className="col-md-offset-1 col-md-3">
+          <div className="col-md-offset-1 col-md-2">
             <label>Long Break minutes: </label>
-            <input type="text" id="longBreakMinutes" readOnly />
           </div>
           <div className="col-md-3" id="long-break-slider"></div>
         </div>

@@ -20,6 +20,9 @@ timer_model = {
     ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
     ea.subscribe('SET_TYPE',      'handleSetType',    Store.timer.handleSetType);
     ea.subscribe('SETUP',         'handleSetup',      Store.timer.handleSetup);
+    ea.subscribe('POMO_MINUTES_CHANGED', 'handlePomoMinutesChanged', Store.timer.handlePomoMinutesChanged);
+    ea.subscribe('BREAK_MINUTES_CHANGED', 'handleBreakMinutesChanged', Store.timer.handleBreakMinutesChanged);
+    ea.subscribe('LONG_BREAK_MINUTES_CHANGED', 'handleLongBreakMinutesChanged', Store.timer.handleLongBreakMinutesChanged);
   },
 
   handleTick: function(evt) {
@@ -100,6 +103,21 @@ timer_model = {
   handleSetup: function(evt) {
     // show setup modal
     console.log('timer_model.js. handleSetup');
+  },
+
+  handlePomoMinutesChanged: function(evt) {
+    Store.timer.pomoMinutes=evt[0].minutes;
+    ea.publish('CHANGE');
+  },
+
+  handleBreakMinutesChanged: function(evt) {
+    Store.timer.breakMinutes=evt[0].minutes;
+    ea.publish('CHANGE');
+  },
+
+  handleLongBreakMinutesChanged: function(evt) {
+    Store.timer.longBreakMinutes=evt[0].minutes;
+    ea.publish('CHANGE');
   }
 }
 

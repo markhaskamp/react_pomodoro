@@ -31,7 +31,8 @@ $(function() {
     min: 19,
     max: 41,
     slide: function(evt, ui) {
-      $('#pomoMinutes').val($('#pomo-slider').slider('value'));
+      var newMinutes = $('#pomo-slider').slider('value');
+      ea.publish('POMO_MINUTES_CHANGED', {minutes: newMinutes});
     }
   });
 });
@@ -43,7 +44,8 @@ $(function() {
     min: 2,
     max: 11,
     slide: function(evt, ui) {
-      $('#breakMinutes').val($('#break-slider').slider('value'));
+      var newMinutes = $('#break-slider').slider('value');
+      ea.publish('BREAK_MINUTES_CHANGED', {minutes: newMinutes});
     }
   });
 });
@@ -55,7 +57,8 @@ $(function() {
     min: 9,
     max: 21,
     slide: function(evt, ui) {
-      $('#longBreakMinutes').val($('#long-break-slider').slider('value'));
+      var newMinutes = $('#long-break-slider').slider('value');
+      ea.publish('LONG_BREAK_MINUTES_CHANGED', {minutes: newMinutes});
     }
   });
 });
