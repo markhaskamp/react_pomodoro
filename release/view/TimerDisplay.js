@@ -75,25 +75,28 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
           )
         ), 
 
-        React.createElement("div", {className: "row"}, 
-          React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
-            React.createElement("label", null, "Pomodoro minutes: ")
-          ), 
-          React.createElement("div", {className: "col-md-3", id: "pomo-slider"})
-        ), 
+        React.createElement("div", {id: "setup-dialog", className: "setupDialog", title: "Setup"}, 
 
-        React.createElement("div", {className: "row"}, 
-          React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
-            React.createElement("label", null, "Break minutes: ")
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
+              React.createElement("label", null, "Pomodoro minutes: ")
+            ), 
+            React.createElement("div", {className: "col-md-3", id: "pomo-slider"})
           ), 
-          React.createElement("div", {className: "col-md-3", id: "break-slider"})
-        ), 
-
-        React.createElement("div", {className: "row"}, 
-          React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
-            React.createElement("label", null, "Long Break minutes: ")
+  
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
+              React.createElement("label", null, "Break minutes: ")
+            ), 
+            React.createElement("div", {className: "col-md-3", id: "break-slider"})
           ), 
-          React.createElement("div", {className: "col-md-3", id: "long-break-slider"})
+  
+          React.createElement("div", {className: "row"}, 
+            React.createElement("div", {className: "col-md-offset-1 col-md-2"}, 
+              React.createElement("label", null, "Long Break minutes: ")
+            ), 
+            React.createElement("div", {className: "col-md-3", id: "long-break-slider"})
+          )
         )
       )
     );

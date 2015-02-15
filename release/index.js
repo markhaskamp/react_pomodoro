@@ -24,6 +24,14 @@ Store.pomodoroList.setSubscriptions();
 
 setInterval(handleTick, 1000);
 
+var dialog = $('.setupDialog').dialog({
+  autoOpen: false,
+  height: 300,
+  width: 350,
+  modal: true
+});
+
+
 $(function() {
   $("#pomo-slider").slider({
     range: 'min',

@@ -75,25 +75,28 @@ var TimerDisplay = React.createClass({
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-offset-1 col-md-2">
-            <label>Pomodoro minutes: </label>
-          </div>
-          <div className="col-md-3" id="pomo-slider"></div>
-        </div>
+        <div id="setup-dialog" className="setupDialog" title="Setup">
 
-        <div className="row">
-          <div className="col-md-offset-1 col-md-2">
-            <label>Break minutes: </label>
+          <div className="row">
+            <div className="col-md-offset-1 col-md-2">
+              <label>Pomodoro minutes: </label>
+            </div>
+            <div className="col-md-3" id="pomo-slider"></div>
           </div>
-          <div className="col-md-3" id="break-slider"></div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-offset-1 col-md-2">
-            <label>Long Break minutes: </label>
+  
+          <div className="row">
+            <div className="col-md-offset-1 col-md-2">
+              <label>Break minutes: </label>
+            </div>
+            <div className="col-md-3" id="break-slider"></div>
           </div>
-          <div className="col-md-3" id="long-break-slider"></div>
+  
+          <div className="row">
+            <div className="col-md-offset-1 col-md-2">
+              <label>Long Break minutes: </label>
+            </div>
+            <div className="col-md-3" id="long-break-slider"></div>
+          </div>
         </div>
       </div>
     );
