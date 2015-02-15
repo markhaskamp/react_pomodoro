@@ -24,6 +24,10 @@ var TimerDisplay = React.createClass({
     ea.publish('SET_TYPE', {type: 'longBreak'});
   },
 
+  setupClicked: function() {
+    ea.publish('SETUP', {});
+  },
+
   descriptionChanged: function(evt) {
     ea.publish('DESCRIPTION_CHANGED', {});
   },
@@ -43,7 +47,9 @@ var TimerDisplay = React.createClass({
             <div id="pomodoroLabel"  className={this.state.pomoTypeLabelClass} onClick={this.pomodoroLabelClicked}>pomodoro [{this.state.pomoMinutes}]</div>
             <div id="breakLabel"     className={this.state.breakTypeLabelClass} onClick={this.breakLabelClicked}>break [{this.state.breakMinutes}]</div>
             <div id="longBreakLabel" className={this.state.longBreakTypeLabelClass} onClick={this.longBreakLabelClicked}>long break [{this.state.longBreakMinutes}]</div>
+            <div className="col-md-offset-9" onClick={this.setupClicked}><img src="img/setup.jpg" height="24"/></div>
           </div>
+
 
           <div className="row">
             <div className="col-md-10">
@@ -65,6 +71,29 @@ var TimerDisplay = React.createClass({
           </div>
         </div>
 
+        <div className="row">
+          <div className="col-md-offset-1 col-md-3">
+            <label>Pomodoro minutes: </label>
+            <input type="text" id="pomoMinutes" readOnly />
+          </div>
+          <div className="col-md-3" id="pomo-slider"></div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-offset-1 col-md-3">
+            <label>Break minutes: </label>
+            <input type="text" id="breakMinutes" readOnly />
+          </div>
+          <div className="col-md-3" id="break-slider"></div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-offset-1 col-md-3">
+            <label>Long Break minutes: </label>
+            <input type="text" id="longBreakMinutes" readOnly />
+          </div>
+          <div className="col-md-3" id="long-break-slider"></div>
+        </div>
       </div>
     );
   }
@@ -72,4 +101,5 @@ var TimerDisplay = React.createClass({
 });
 
 React.render(<TimerDisplay />, document.getElementById('content'));
+
 

@@ -18,8 +18,9 @@
 
 ### Doing
 
-- pause button
-  - have Start/Pause/Stop button cycle through its 3 options
+- setup modal for defining the goal-minutes for each type
+  - first, make modal part of timer view.
+  - eventually, pull it out into its own view
 
 ### To Do
 
@@ -30,9 +31,15 @@
 - read current value of description when writing to completed pomo list
 - anticapate next type
   - long break if 4rd break
+- setup
+  - save goal minutes for each type to local storage (localForage?)
+  - read goal minutes for each type to local storage (localForage?)
+
 
 ### Done
 
+- pause button
+  - have Start/Pause/Stop button cycle through its 3 options
 - anticapate next type
   - pomodoro after break
   - break after pomodoro

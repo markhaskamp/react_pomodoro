@@ -19,6 +19,7 @@ timer_model = {
     ea.subscribe('TICK',          'handleTick',       Store.timer.handleTick);
     ea.subscribe('START_CLICKED', 'handleStartClick', Store.timer.handleStartClick);
     ea.subscribe('SET_TYPE',      'handleSetType',    Store.timer.handleSetType);
+    ea.subscribe('SETUP',         'handleSetup',      Store.timer.handleSetup);
   },
 
   handleTick: function(evt) {
@@ -95,5 +96,10 @@ timer_model = {
 
     ea.publish('CHANGE');
   },
+
+  handleSetup: function(evt) {
+    // show setup modal
+    console.log('timer_model.js. handleSetup');
+  }
 }
 

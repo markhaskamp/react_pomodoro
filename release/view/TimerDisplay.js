@@ -24,6 +24,10 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
     ea.publish('SET_TYPE', {type: 'longBreak'});
   },
 
+  setupClicked: function() {
+    ea.publish('SETUP', {});
+  },
+
   descriptionChanged: function(evt) {
     ea.publish('DESCRIPTION_CHANGED', {});
   },
@@ -42,8 +46,10 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
           React.createElement("div", {className: "row"}, 
             React.createElement("div", {id: "pomodoroLabel", className: this.state.pomoTypeLabelClass, onClick: this.pomodoroLabelClicked}, "pomodoro [", this.state.pomoMinutes, "]"), 
             React.createElement("div", {id: "breakLabel", className: this.state.breakTypeLabelClass, onClick: this.breakLabelClicked}, "break [", this.state.breakMinutes, "]"), 
-            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break [", this.state.longBreakMinutes, "]")
+            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break [", this.state.longBreakMinutes, "]"), 
+            React.createElement("div", {className: "col-md-offset-9", onClick: this.setupClicked}, React.createElement("img", {src: "img/setup.jpg", height: "24"}))
           ), 
+
 
           React.createElement("div", {className: "row"}, 
             React.createElement("div", {className: "col-md-10"}, 
@@ -63,8 +69,31 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
               )
             )
           )
-        )
+        ), 
 
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-md-offset-1 col-md-3"}, 
+            React.createElement("label", null, "Pomodoro minutes: "), 
+            React.createElement("input", {type: "text", id: "pomoMinutes", readOnly: true})
+          ), 
+          React.createElement("div", {className: "col-md-3", id: "pomo-slider"})
+        ), 
+
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-md-offset-1 col-md-3"}, 
+            React.createElement("label", null, "Break minutes: "), 
+            React.createElement("input", {type: "text", id: "breakMinutes", readOnly: true})
+          ), 
+          React.createElement("div", {className: "col-md-3", id: "break-slider"})
+        ), 
+
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-md-offset-1 col-md-3"}, 
+            React.createElement("label", null, "Long Break minutes: "), 
+            React.createElement("input", {type: "text", id: "longBreakMinutes", readOnly: true})
+          ), 
+          React.createElement("div", {className: "col-md-3", id: "long-break-slider"})
+        )
       )
     );
   }
@@ -72,4 +101,5 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
 });
 
 React.render(React.createElement(TimerDisplay, null), document.getElementById('content'));
+
 
