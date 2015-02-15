@@ -41,7 +41,7 @@ $(function() {
   $("#break-slider").slider({
     range: 'min',
     value: 5,
-    min: 2,
+    min: 0,
     max: 11,
     slide: function(evt, ui) {
       var newMinutes = $('#break-slider').slider('value');

@@ -77,21 +77,21 @@ timer_model = {
 
     if (type === 'pomodoro') {
       Store.timer.isBreak = false;
-      Store.timer.goalMinutes = 25;
+      Store.timer.goalMinutes = Store.timer.pomodoroMinutes;
       Store.timer.pomoTypeLabelClass="col-md-2 typeLabel selected";
       Store.timer.breakTypeLabelClass="col-md-2 typeLabel";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else if (type === 'break') {
       Store.timer.isBreak = true;
-      Store.timer.goalMinutes = 5;
+      Store.timer.goalMinutes = Store.timer.breakMinutes;
       Store.timer.pomoTypeLabelClass="col-md-2 typeLabel";
       Store.timer.breakTypeLabelClass="col-md-2 typeLabel selected";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel";
     }
     else {
       Store.timer.isBreak = true;
-      Store.timer.goalMinutes = 15;
+      Store.timer.goalMinutes = Store.timer.longBreakMinutes;
       Store.timer.pomoTypeLabelClass="col-md-2 typeLabel";
       Store.timer.breakTypeLabelClass="col-md-2 typeLabel";
       Store.timer.longBreakTypeLabelClass="col-md-2 typeLabel selected";
