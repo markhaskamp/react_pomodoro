@@ -7,10 +7,10 @@ timer_model = {
   startButtonLabel: 'Start',
   className: 'form-control description',
   isBreak:        false,
-  goalMinutes:    25,
-  pomoMinutes:    25,
-  breakMinutes:    5,
-  longBreakMinutes: 15,
+  goalMinutes:    localStorage.pomoMinutes === undefined ? 25 : localStorage.pomoMinutes,
+  pomoMinutes:    localStorage.pomoMinutes === undefined ? 25 : localStorage.pomoMinutes,
+  breakMinutes:   localStorage.breakMinutes === undefined ? 5 : localStorage.breakMinutes,
+  longBreakMinutes: localStorage.longBreakMinutes === undefined ? 15 : localStorage.longBreakMinutes,
   pomoTypeLabelClass:      'col-md-2 typeLabel selected',
   breakTypeLabelClass:     'col-md-2 typeLabel',
   longBreakTypeLabelClass: 'col-md-2 typeLabel',
@@ -106,16 +106,19 @@ timer_model = {
 
   handlePomoMinutesChanged: function(evt) {
     Store.timer.pomoMinutes=evt[0].minutes;
+    localStorage.pomoMinutes = Store.timer.pomoMinutes;
     ea.publish('CHANGE');
   },
 
   handleBreakMinutesChanged: function(evt) {
     Store.timer.breakMinutes=evt[0].minutes;
+    localStorage.breakMinutes = Store.timer.breakMinutes;
     ea.publish('CHANGE');
   },
 
   handleLongBreakMinutesChanged: function(evt) {
     Store.timer.longBreakMinutes=evt[0].minutes;
+    localStorage.longBreakMinutes = Store.timer.longBreakMinutes;
     ea.publish('CHANGE');
   }
 }
@@ -123,7 +126,7 @@ timer_model = {
 $(function() {
   $("#pomo-slider").slider({
     range: 'min',
-    value: 25,
+    value: localStorage.pomoMinutes,
     min: 0,
     max: 41,
     slide: function(evt, ui) {
@@ -136,7 +139,7 @@ $(function() {
 $(function() {
   $("#break-slider").slider({
     range: 'min',
-    value: 5,
+    value: localStorage.breakMinutes,
     min: 0,
     max: 41,
     slide: function(evt, ui) {
@@ -149,7 +152,7 @@ $(function() {
 $(function() {
   $("#long-break-slider").slider({
     range: 'min',
-    value: 15,
+    value: localStorage.longBreakMinutes,
     min: 0,
     max: 41,
     slide: function(evt, ui) {
