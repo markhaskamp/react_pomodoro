@@ -120,3 +120,41 @@ timer_model = {
   }
 }
 
+$(function() {
+  $("#pomo-slider").slider({
+    range: 'min',
+    value: 25,
+    min: 0,
+    max: 41,
+    slide: function(evt, ui) {
+      var newMinutes = $('#pomo-slider').slider('value');
+      ea.publish('POMO_MINUTES_CHANGED', {minutes: newMinutes});
+    }
+  });
+});
+
+$(function() {
+  $("#break-slider").slider({
+    range: 'min',
+    value: 5,
+    min: 0,
+    max: 41,
+    slide: function(evt, ui) {
+      var newMinutes = $('#break-slider').slider('value');
+      ea.publish('BREAK_MINUTES_CHANGED', {minutes: newMinutes});
+    }
+  });
+});
+
+$(function() {
+  $("#long-break-slider").slider({
+    range: 'min',
+    value: 15,
+    min: 0,
+    max: 41,
+    slide: function(evt, ui) {
+      var newMinutes = $('#long-break-slider').slider('value');
+      ea.publish('LONG_BREAK_MINUTES_CHANGED', {minutes: newMinutes});
+    }
+  });
+});
