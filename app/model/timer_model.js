@@ -101,10 +101,7 @@ timer_model = {
   },
 
   handleSetup: function(evt) {
-    // show setup modal
-    console.log('timer_model.js. handleSetup');
-    console.log(dialog);
-    dialog.dialog("open");
+    $('#setup-dialog').toggle("bind");
   },
 
   handlePomoMinutesChanged: function(evt) {

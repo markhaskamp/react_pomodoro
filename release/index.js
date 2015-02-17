@@ -24,19 +24,13 @@ Store.pomodoroList.setSubscriptions();
 
 setInterval(handleTick, 1000);
 
-var dialog = $('.setupDialog').dialog({
-  autoOpen: false,
-  height: 300,
-  width: 350,
-  modal: true
-});
 
 
 $(function() {
   $("#pomo-slider").slider({
     range: 'min',
     value: 25,
-    min: 19,
+    min: 0,
     max: 41,
     slide: function(evt, ui) {
       var newMinutes = $('#pomo-slider').slider('value');
@@ -50,7 +44,7 @@ $(function() {
     range: 'min',
     value: 5,
     min: 0,
-    max: 11,
+    max: 41,
     slide: function(evt, ui) {
       var newMinutes = $('#break-slider').slider('value');
       ea.publish('BREAK_MINUTES_CHANGED', {minutes: newMinutes});
@@ -62,8 +56,8 @@ $(function() {
   $("#long-break-slider").slider({
     range: 'min',
     value: 15,
-    min: 9,
-    max: 21,
+    min: 0,
+    max: 41,
     slide: function(evt, ui) {
       var newMinutes = $('#long-break-slider').slider('value');
       ea.publish('LONG_BREAK_MINUTES_CHANGED', {minutes: newMinutes});

@@ -50,8 +50,7 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
           React.createElement("div", {className: "row"}, 
             React.createElement("div", {id: "pomodoroLabel", className: this.state.pomoTypeLabelClass, onClick: this.pomodoroLabelClicked}, "pomodoro [", this.state.pomoMinutes, "]"), 
             React.createElement("div", {id: "breakLabel", className: this.state.breakTypeLabelClass, onClick: this.breakLabelClicked}, "break [", this.state.breakMinutes, "]"), 
-            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break [", this.state.longBreakMinutes, "]"), 
-            React.createElement("div", {className: "col-md-offset-9", onClick: this.setupClicked}, React.createElement("img", {src: "img/setup.jpg", height: "24"}))
+            React.createElement("div", {id: "longBreakLabel", className: this.state.longBreakTypeLabelClass, onClick: this.longBreakLabelClicked}, "long break [", this.state.longBreakMinutes, "]")
           ), 
 
 
@@ -73,6 +72,9 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
               )
             )
           )
+        ), 
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-md-offset-9 col-md-1", onClick: this.setupClicked}, React.createElement("img", {src: "img/setup.jpg", height: "24"}))
         ), 
 
         React.createElement("div", {id: "setup-dialog", className: "setupDialog", title: "Setup"}, 
@@ -105,5 +107,6 @@ var TimerDisplay = React.createClass({displayName: "TimerDisplay",
 });
 
 React.render(React.createElement(TimerDisplay, null), document.getElementById('content'));
+$('#setup-dialog').hide();
 
 

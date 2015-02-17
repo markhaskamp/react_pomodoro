@@ -51,7 +51,6 @@ var TimerDisplay = React.createClass({
             <div id="pomodoroLabel"  className={this.state.pomoTypeLabelClass} onClick={this.pomodoroLabelClicked}>pomodoro [{this.state.pomoMinutes}]</div>
             <div id="breakLabel"     className={this.state.breakTypeLabelClass} onClick={this.breakLabelClicked}>break [{this.state.breakMinutes}]</div>
             <div id="longBreakLabel" className={this.state.longBreakTypeLabelClass} onClick={this.longBreakLabelClicked}>long break [{this.state.longBreakMinutes}]</div>
-            <div className="col-md-offset-9" onClick={this.setupClicked}><img src="img/setup.jpg" height="24"/></div>
           </div>
 
 
@@ -73,6 +72,9 @@ var TimerDisplay = React.createClass({
               </div>
             </div>
           </div>
+        </div>
+        <div className="row">
+          <div className="col-md-offset-9 col-md-1" onClick={this.setupClicked}><img src="img/setup.jpg" height="24"/></div>
         </div>
 
         <div id="setup-dialog" className="setupDialog" title="Setup">
@@ -105,5 +107,6 @@ var TimerDisplay = React.createClass({
 });
 
 React.render(<TimerDisplay />, document.getElementById('content'));
+$('#setup-dialog').hide();
 
 
